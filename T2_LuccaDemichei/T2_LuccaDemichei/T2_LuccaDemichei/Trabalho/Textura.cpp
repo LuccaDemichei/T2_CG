@@ -542,8 +542,20 @@ void display( void )
 
 
 	glPushMatrix();
-        glTranslatef( 3.5f, 0.0f, 3.0f );
+        glTranslatef( -7.5f, 0.0f, -3.0f );
         glScalef(1.0f,6.0f,1.5f);
+		DesenhaCubo();
+	glPopMatrix();
+
+		glPushMatrix();
+        glTranslatef( -2.0f, 0.0f, 12.0f );
+        glScalef(1.0f,3.0f,1.5f);
+		DesenhaCubo();
+	glPopMatrix();
+
+		glPushMatrix();
+        glTranslatef( 3.5f, 0.0f, 3.0f );
+        glScalef(1.0f,4.0f,1.5f);
 		DesenhaCubo();
 	glPopMatrix();
 
