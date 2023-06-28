@@ -57,36 +57,8 @@ double anguloCarro = 0.0;
 
 double velocidadeCarro = 0;
 
-class Elemento{
-public:
-    int idPosicao;
-};
 
-#define TERRENO 0
-#define CROSS 1
-#define DL 2
-#define DLR 3
-#define DR 4
-#define LR 5
-#define UD 6
-#define UDL 7
-#define UDR 8
-#define UL 9
-#define ULR 10
-#define UR 11
-
-//Dimensões da cidade
-int tamX = 6;
-int tamZ = 6;
-
-int Cidade1[5][5] = {
-{0,1,0,2,0},
-{0,1,0,2,0},
-{0,1,0,2,0},
-{0,1,0,2,0},
-{0,1,0,2,0},
-};
-
+//Cidade
 int Cidade[30][30] = {
 {0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
 {4,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	3,	3,	5,	5,	5,	5,	5,	5,	3,	5,	5,	5,	5,	5,	5,	5},
@@ -96,7 +68,7 @@ int Cidade[30][30] = {
 {7,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	7,	7,	0,	0,	0,	0,	0,	0,	7,	0,	0,	0,	0,	0,	0,	0},
 {7,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	7,	7,	0,	0,	0,	0,	0,	0,	7,	0,	0,	0,	0,	0,	0,	0},
 {7,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	7,	7,	0,	0,	0,	0,	0,	0,	7,	0,	0,	0,	0,	0,	0,	0},
-{7,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	7,	7,	0,	0,	2,	5,	5,	5,	7,	0,	0,	0,	0,	0,	0,	0},
+{7,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	7,	7,	0,	0,	4,	5,	5,	5,	7,	0,	0,	0,	0,	0,	0,	0},
 {7,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	7,	7,	0,	0,	7,	0,	0,	0,	7,	0,	0,	0,	0,	0,	0,	0},
 {7,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	7,	7,	0,	0,	7,	0,	0,	0,	7,	0,	0,	0,	0,	0,	0,	0},
 {7,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	7,	7,	0,	0,	7,	0,	0,	0,	7,	0,	0,	0,	0,	0,	0,	0},
@@ -328,7 +300,7 @@ void DesenhaCubo ()
     glVertex3f( 1.0f, -1.0f, -1.0f);
 
     // Top Face
-    glNormal3f(0,1,0);
+    glNormal3f(0,5,0);
     glTexCoord2f(0.0f, 1.0f);
     glVertex3f(-1.0f,  1.0f, -1.0f);
 
@@ -570,9 +542,8 @@ void display( void )
 
 
 	glPushMatrix();
-        glTranslatef ( 5.0f, 0.0f, 3.0f );
-        glRotatef(AngY,0,1,0);
-        glBindTexture (GL_TEXTURE_2D, TEX3);
+        glTranslatef( 3.5f, 0.0f, 3.0f );
+        glScalef(1.0f,6.0f,1.5f);
 		DesenhaCubo();
 	glPopMatrix();
 
@@ -581,10 +552,10 @@ void display( void )
     else glColor3f(0.6156862745, 0.8980392157, 0.9803921569); // Azul claro
 
 	glPushMatrix();
-        glTranslatef ( -4.0f, 8.0f, 2.0f );
-		glRotatef(AngY,0,1,0);
-        glBindTexture (GL_TEXTURE_2D, TEX3);
+        glTranslatef(-3.5f, 0.0f, 2.0f);
+        glColor3f(1.0,1.0,1.0);
 		DesenhaCubo();
+        glTranslatef ( -3.5f, 2.0f, 2.0f );
 	glPopMatrix();
 
     glPushMatrix();
